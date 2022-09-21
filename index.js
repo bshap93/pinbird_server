@@ -9,6 +9,10 @@ app.get('/', (req, res) => {
 
 app.get('/tags', tags);
 
+app.post('/tag', createTag)
+
+
 app.listen(PORT, function () {
     console.log(`Pinbird project at: ${PORT}!`);
 });
+

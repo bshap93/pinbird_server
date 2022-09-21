@@ -1,13 +1,15 @@
+const { app } = require("firebase-admin");
 const { db } = require("../util/admin");
 
 exports.tags = async (req, res) => {
     const tagsRef = db.collection('tags');    
     try{
-            tagsRef.get().then((snapshot) => {
+        tagsRef.get().then((snapshot) => {
             const data = snapshot.docs.map((doc) => ({
             id: doc.id,
             ...doc.data(),
-        }));            console.log(data);
+        }));            
+            console.log(data);
             return res.status(201).json(data);
         })
     } catch (error) {
